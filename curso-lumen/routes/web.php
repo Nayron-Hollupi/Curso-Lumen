@@ -16,3 +16,19 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/usuarios', 'UsuarioController@mostrarTodosUsuarios'); 
+
+$router->post('/usuario/cadastar', 'UsuarioController@cadastrar'); 
+
+$router->get('/usuario/{id}', 'UsuarioController@mostrarUmUsuario'); 
+
+$router->get('/usuario/{id}/atualizar', 'UsuarioController@atualizarUsuario'); 
+/*
+$router->get('/teste', function () use ($router) {
+    return '[routes/web.php] Metodo GET URL: /teste';
+});
+
+$router->get('/teste', function () use ($router) {
+    return '[routes/web.php] Metodo GET URL: /teste';
+});*/
