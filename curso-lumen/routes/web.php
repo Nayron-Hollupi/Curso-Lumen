@@ -24,6 +24,10 @@ $router->post('/usuario/cadastar', 'UsuarioController@cadastrar');
 $router->get('/usuario/{id}', 'UsuarioController@mostrarUmUsuario'); 
 
 $router->get('/usuario/{id}/atualizar', 'UsuarioController@atualizarUsuario'); 
+
+$router->put('/usuario/{id}/atualizar', 'UsuarioController@atualizarUsuario');
+
+$router->delete('/usuario/{id}/deletar', 'UsuarioController@deletarUsuario');
 /*
 $router->get('/teste', function () use ($router) {
     return '[routes/web.php] Metodo GET URL: /teste';

@@ -51,5 +51,12 @@ class UsuarioController extends Controller
         return response()->json($usuario);
 
     }
+
+    public function deletarUsuario($id){
+        $usuario = Usuario::find($id);
+        $usuario->delete();
+        return response()->json('Deletando com Sucesso', 200);
+
+    }
     //
 }
