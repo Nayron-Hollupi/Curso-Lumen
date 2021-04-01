@@ -17,8 +17,25 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/usuarios', 'UsuarioController@mostrarTodosUsuarios'); 
+$router->get('/usuario', 'UsuarioController@mostrarTodosUsuarios'); 
 
+//Grupo de rotas
+$router->group(['prefix' => 'usuario'], function() use($router){
+
+    $router->post('/cadastrar', 'UsuarioController@cadastrarUsuario'); 
+    $router->get('/{id}', 'UsuarioController@mostrarUmUsuario'); 
+    $router->get('/{id}/atualizar', 'UsuarioController@atualizarUsuario'); 
+    $router->put('/{id}/atualizar', 'UsuarioController@atualizarUsuario');
+    $router->delete('/{id}/deletar', 'UsuarioController@deletarUsuario');
+});
+
+
+
+
+
+
+
+/*
 $router->post('/usuario/cadastar', 'UsuarioController@cadastrar'); 
 
 $router->get('/usuario/{id}', 'UsuarioController@mostrarUmUsuario'); 
@@ -28,6 +45,10 @@ $router->get('/usuario/{id}/atualizar', 'UsuarioController@atualizarUsuario');
 $router->put('/usuario/{id}/atualizar', 'UsuarioController@atualizarUsuario');
 
 $router->delete('/usuario/{id}/deletar', 'UsuarioController@deletarUsuario');
+*/
+
+
+
 /*
 $router->get('/teste', function () use ($router) {
     return '[routes/web.php] Metodo GET URL: /teste';

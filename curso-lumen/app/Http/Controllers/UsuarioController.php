@@ -23,9 +23,16 @@ class UsuarioController extends Controller
 
     public function cadastrarUsuario(Request $request){
         //inserirndo um usuario
+
+        $this->validate($request,[
+            'usuario' => 'required|min:5|max:40',
+            'email' => 'required|email|unique:usuarios,email',
+            'password' => 'required'
+        ]);
+
         $usuario = new Usuario;
-        $usuario->email = $request->email;
         $usuario->usuario = $request->usuario;
+        $usuario->email = $request->email;
         $usuario->password = $request->password;
 
 
